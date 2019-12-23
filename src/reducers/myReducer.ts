@@ -1,4 +1,4 @@
-import { AppActions, ActionNames } from "../types/actions";
+import { AppActions, ActionNames } from "../types/actionData";
 
 const defaultState = "";
 const myReducer = (state = defaultState, action: AppActions): string => {

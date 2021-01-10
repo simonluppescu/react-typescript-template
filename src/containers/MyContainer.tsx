@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
+import MyComponent from "../components/MyComponent";
 import { AppState } from "../store/configureStore";
 
 type StateProps = {};
 type DispatchProps = {};
-type State = {};
 
 type Props = StateProps & DispatchProps;
 
-export class MyContainer extends Component<Props, State> {
-  state = {};
-
+export class MyContainer extends Component<Props> {
   render(): React.ReactNode {
-    return <div></div>;
+    return <MyComponent />;
   }
 }
 

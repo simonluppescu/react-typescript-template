@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ActionNames, MyAction } from "../types/actionData";
+
+import { ActionNames, MyAction, SetDataAction } from "../types/actionData";
 import { AppAsyncAction } from "../types/common";
 
 export const doSomething = (someField: string): MyAction => ({
@@ -7,16 +8,18 @@ export const doSomething = (someField: string): MyAction => ({
   // someField
 });
 
-export const fetchData = (someField: string): AppAsyncAction => async (dispatch, getState): Promise<any> => {
+export const fetchData = (): AppAsyncAction => async (dispatch, getState): Promise<any> => {
   try {
     const response = await axios.get("https://www.example.com/api");
+    const data = response.data.result;
+
+    dispatch(setData(data));
   } catch (e) {
     // Do something with error
   }
 };
 
-// Adjust this to use correct actions
-export const setData = (someField: string): MyAction => ({
-  type: ActionNames.MY_ACTION,
-  someField
+export const setData = (data: string): SetDataAction => ({
+  type: ActionNames.SET_DATA,
+  data
 });

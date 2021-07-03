@@ -1,14 +1,13 @@
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 
-import "./App.css";
-
+import { MyContainer } from "./containers/MyContainer";
 import { store } from "./store/configureStore";
 
 const App: FC = () => {
   return (
     <Provider store={store}>
-      <div>Hello World!</div>
+      <MyContainer />
     </Provider>
   );
 };

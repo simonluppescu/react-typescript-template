@@ -1,17 +1,23 @@
+import produce from "immer";
+
 import { AppActions, ActionNames } from "../types/actionData";
 
 const defaultState = "";
-const exampleReducer = (state = defaultState, action: AppActions): string => {
+const exampleReducer = produce((draftState = defaultState, action: AppActions): string => {
   switch (action.type) {
-    case ActionNames.MY_ACTION:
-      return "some new state";
+    case ActionNames.MY_ACTION: {
+      // Do some stuff
 
-    case ActionNames.SET_DATA:
+      return draftState;
+    }
+
+    case ActionNames.SET_DATA: {
       return action.data;
+    }
 
     default:
-      return state;
+      return draftState;
   }
-};
+});
 
 export default exampleReducer;

@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 
 import MyComponent from "../components/MyComponent";
+import { doSomething, fetchData } from "../actions";
 import { AppState } from "../store/configureStore";
+import { AppDispatch } from "../types/common";
 
 type StateProps = {};
-type DispatchProps = {};
+type DispatchProps = {
+  handleAction: () => void;
+  fetchData: () => void;
+};
 
 type Props = StateProps & DispatchProps;
 
@@ -18,7 +22,14 @@ export class MyContainer extends Component<Props> {
 
 const mapStateToProps = (state: AppState): StateProps => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({});
+const mapDispatchToProps = (dispatch: AppDispatch): DispatchProps => ({
+  handleAction: (): void => {
+    dispatch(doSomething("something"));
+  },
+  fetchData: (): void => {
+    dispatch(fetchData());
+  }
+});
 
 export default connect(
   mapStateToProps,

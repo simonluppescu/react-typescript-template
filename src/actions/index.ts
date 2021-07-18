@@ -1,14 +1,14 @@
 import axios from "axios";
 
 import { ActionNames, MyAction, SetDataAction } from "../types/actionData";
-import { AppAsyncAction } from "../types/common";
+import { AppThunkAction } from "../types/common";
 
 export const doSomething = (someField: string): MyAction => ({
   type: ActionNames.MY_ACTION
   // someField
 });
 
-export const fetchData = (): AppAsyncAction => async (dispatch, getState): Promise<any> => {
+export const fetchData = (): AppThunkAction => async (dispatch, getState): Promise<any> => {
   try {
     const response = await axios.get("https://www.example.com/api");
     const data = response.data.result;

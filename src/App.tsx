@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 
-import { MyContainer } from "./containers/MyContainer";
+import MyContainer from "./containers/MyContainer";
 import { store } from "./store/configureStore";
 
 const App: FC = () => {

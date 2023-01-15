@@ -40,7 +40,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "foreman": "^3.0.1",
-    "immer": "^9.0.3",
+    "immer": "^9.0.6",
     "prettier": "^2.8.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

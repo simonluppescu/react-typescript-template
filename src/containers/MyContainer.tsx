@@ -6,7 +6,9 @@ import { doSomething, fetchData } from "../actions";
 import { AppState } from "../store/configureStore";
 import { AppDispatch } from "../types/common";
 
-type StateProps = {};
+type StateProps = {
+  example: string;
+};
 type DispatchProps = {
   handleAction: () => void;
   fetchData: () => void;
@@ -16,11 +18,13 @@ type Props = StateProps & DispatchProps;
 
 export class MyContainer extends Component<Props> {
   render(): React.ReactNode {
-    return <MyComponent />;
+    return <MyComponent name="Simon" />;
   }
 }
 
-const mapStateToProps = (state: AppState): StateProps => ({});
+const mapStateToProps = (state: AppState): StateProps => ({
+  example: state.example
+});
 
 const mapDispatchToProps = (dispatch: AppDispatch): DispatchProps => ({
   handleAction: (): void => {
@@ -31,7 +35,4 @@ const mapDispatchToProps = (dispatch: AppDispatch): DispatchProps => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MyContainer);

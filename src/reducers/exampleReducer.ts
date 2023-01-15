@@ -18,6 +18,6 @@ const exampleReducer = produce((draftState = defaultState, action: AppActions): 
     default:
       return draftState;
   }
-});
+}, defaultState);
 
 export default exampleReducer;
